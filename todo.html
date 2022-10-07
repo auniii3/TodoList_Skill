@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        ToDo List
+    </title>
+    <script src="https://kit.fontawesome.com/164ab0d69f.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="todo.css">
+</head>
+
+<body>
+    <!--Entire ToDo List Container-->
+    <div id="todo-container">
+        <!--form for filling the todo details-->
+        <form action="">
+            <i class="fa fa-calendar-check" id="book-icon"></i><input type="text" placeholder="Type your todo item" id="task" required>
+            <i class="fa fa-plus-circle onhover" id="add"></i>
+        </form>
+
+        <div id="todo-details">
+            <!--clickable text for completing all tasks-->
+            <span id="completeall" class="onhover"><i class="fa fa-check-double"></i>Complete all tasks</span>
+            <!--clickable text for clearing completed tasks-->
+            <span id="clearcompleted" class="onhover">Clear completed tasks</span>
+            <hr>
+            <!--to display no todo items-->
+            <div id="lists-div">
+                <h4 id="notask">No TODO Items.</h4>
+                <!--list for displaying todo items-->
+                <ul id="lists-container">
+
+                </ul>
+            </div>
+            <hr>
+            <!--pending todo items-->
+            <span id="total-tasks"><span><strong id="task-left">0</strong></span> tasks left</span>
+            <!--filtering todo items-->
+            <div class="filter">
+                <span id="all" class="onhover">All</span>
+                <span id="uncomplete" class="onhover">Uncomplete</span>
+                <span id="completed" class="onhover">Completed</span>
+            </div>
+        </div>
+        <script src="todo.js"></script>
+</body>
+</div>
+
+</html>

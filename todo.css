@@ -1,0 +1,174 @@
+body{
+    background-image: linear-gradient(to right,#595cff, #c6f8ff);
+    
+}
+
+#todo-container{
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 7px;
+    width: 40%;
+    max-height: 70vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+    position: relative;
+}
+
+/* form styles */
+/*form input field styles*/
+#task{
+    width: 87%;
+    height: 2rem;
+    margin: 10px 10px 5px 10px;
+    border-color: gray;
+    border-radius: 5px;
+    background-color: rgb(140, 219, 246,0.3);
+    font-size: 1rem;
+    color: black;
+}
+#book-icon{
+    position: absolute;
+    top: 18px;
+    left: 3.5%;
+    font-size: 1.2rem;
+    color: black;
+}
+/* form input text styles */
+input[type=text]{
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+/* form input add button */
+#add{
+    position: absolute;
+    top: 20px;
+    right: 3.2%;
+    font-size: 1.2rem;
+    color: black;
+}
+
+/* Complete all */
+#completeall{
+    margin-left: 2%;
+    font-size: 1rem;
+    color: rgb(51, 51, 145);
+    font-weight: bold;
+}
+
+/* Clear completed tasks */
+#clearcompleted{
+    font-size: 0.9rem;
+    margin-left: 47%;
+    color: grey;
+    font-weight: 600;
+}
+
+/*No TODO Items.*/
+#notask{
+    text-align: center;
+    font-size: 1.3rem;
+    color: gray;
+    font-family: monospace;
+}
+
+/* todo list styles*/
+
+/*ul*/
+#lists-container{
+    list-style: none;
+    font-size: 1.2rem;
+    margin-top: 0px;
+    padding: 0px;
+}
+
+#lists-container li{
+    margin: 0px;
+}
+
+/*li*/
+/* list*/
+.todo_list_item{
+    padding: 5px 0px 5px 10px;
+}
+
+/* list div*/
+.list-item{
+    position: relative;
+    width: 90%;
+    height: auto;
+    word-break: break-all;
+    padding: 5px;
+    background-color: #c6f8ff;
+    border: 1px solid black;
+    border-radius: 7px;
+    margin-bottom: 10px;
+    margin-left: 18px;
+    box-shadow: 1px 1px 1px 1px gray;
+}
+
+.list-item div{
+    display: inline-block;
+}
+
+.list-item:hover{
+    background-color: #7a7cf6;
+    transition: ease-in-out 0.3s;
+}
+
+/* checkbox */
+.custom-checkbox{
+    height: 18px;
+    width: 18px;
+}
+
+/* delete-div */
+.list-delete{
+    position: absolute;
+    right: 10px;
+}
+
+/* delete-icon*/
+.delete-icon{
+    transform: rotate(45deg);
+    color: rgb(112, 3, 3);
+    margin-top: 3px;
+    font-size: 1.4rem;
+}
+
+.list-delete{
+    visibility: hidden;
+}
+
+.list-item:hover .list-delete{
+    visibility: visible;
+    transition: ease-in-out 0.3s;
+}
+
+/* total tasks*/
+#total-tasks{
+    margin-left: 10px;
+    color: blue;
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+/*All, uncomplete, completed filter */
+.filter{
+    font-size: 0.9rem;
+    color: grey;
+    display: inline-block;
+    margin-left: 53%;
+    margin-bottom: 10px;
+}
+.filter span{
+    margin-left: 5px;
+}
+
+/* common hover styles */
+.onhover:hover{
+    cursor: pointer;
+}
