@@ -133,6 +133,10 @@
             return;
         }
         else if (target.id === 'completeall') {
+            if(tasks.length == 0){
+                showAlertNotification('No tasks available.');
+                return;
+            }
             markAsComplete();
             showAlertNotification('All tasks marked completed succesfully.')
         }
@@ -166,6 +170,10 @@
             return;
         }
         else if (target.id === 'clearcompleted') {
+            if(tasks.length == 0){
+                showAlertNotification('No tasks available.');
+                return;
+            }
             let notCompletedTasks = tasks.filter(x => x.completed === false);
             tasks = notCompletedTasks;
             renderList();
