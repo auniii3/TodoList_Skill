@@ -6,12 +6,14 @@ body{
 h1{
     text-align: center;
     position: fixed;
-    top: 20px;
+    top: 5%;
     left: 38%;
     color: white;
     font-family: 'Courier New', Courier, monospace;
     font-size: 2.7rem;
 }
+
+
 #todo-container{
     background-color: white;
     border: 2px solid black;
@@ -101,15 +103,15 @@ input[type=text]{
 /*li*/
 /* list*/
 .todo_list_item{
-    padding: 5px 0px 5px 10px;
-}
-
-/* list div*/
-.list-item{
     position: relative;
     width: 90%;
     height: auto;
     word-break: break-all;
+    padding: 5px 0px 5px 10px;
+}
+
+/* list div*/
+.unchecked-list-item{
     padding: 5px;
     background-color: #c6f8ff;
     border: 1px solid black;
@@ -119,13 +121,31 @@ input[type=text]{
     box-shadow: 1px 1px 1px 1px gray;
 }
 
-.list-item div{
-    display: inline-block;
-}
-
-.list-item:hover{
+.unchecked-list-item:hover{
     background-color: #7a7cf6;
     transition: ease-in-out 0.3s;
+}
+
+.checked-list-item{
+        padding: 5px;
+        background-color: #cbcccce4;
+        border: 1px solid black;
+        border-radius: 7px;
+        margin-bottom: 10px;
+        margin-left: 18px;
+        box-shadow: 1px 1px 1px 1px gray;
+    
+}
+
+.checked-list-item:hover{
+    background-color: #45f248;
+    transition: ease-in-out 0.3s;
+}
+
+
+
+.list-item div{
+    display: inline-block;
 }
 
 /* checkbox */
@@ -133,6 +153,7 @@ input[type=text]{
     height: 18px;
     width: 18px;
 }
+
 
 /* delete-div */
 .list-delete{

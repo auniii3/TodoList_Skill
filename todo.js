@@ -4,6 +4,7 @@
     //array of todo tasks
     var tasks = [];
     let tmpTotalTasks = 0;
+    var taskText;
 
     //fetching all the required dOM object
     var taskName = document.getElementById('task');
@@ -13,11 +14,10 @@
     var all = document.getElementById('all');
     var uncomplete = document.getElementById('uncomplete');
     var completed = document.getElementById('completed');
-
+    var totTask = document.getElementById('total-tasks');
 
     /* func to add todo item to array */
     function addToDo() {
-        var taskText = taskName.value;
         /* empty task name check */
         if (!taskText) {
             showAlertNotification('Task name cannot be empty');
@@ -42,7 +42,6 @@
     function renderList(e) {
         tasksList.innerHTML = '';
         for (let t of tasks) {
-            console.log(t);
             addToDom(t);
         }
         // no todo item display validation
@@ -61,6 +60,13 @@
             tmpTotalTasks = tasks.length - tasksCompleted;
             tasksLeft.innerHTML = tasks.length - tasksCompleted;
         }
+        
+        if(tmpTotalTasks > 0){
+           totTask.style.color = 'red';
+        }
+        else{
+            totTask.style.color = 'blue';
+        }
         return;
     }
 
@@ -68,9 +74,9 @@
     function addToDom(task) {
         var li = document.createElement('li');
         li.innerHTML = `
-        <div class='list-item'>
+        <div ${task.completed? 'class="checked-list-item list-item"' :'class="unchecked-list-item list-item"'} >
             <div class='list-details'>
-                <input type="checkbox" id="${task.id}" ${task.completed ? 'checked' : ''} class="custom-checkbox">
+                <input type="checkbox" id="${task.id}" ${task.completed ? 'checked' : ''} class="custom-checkbox"/>
                 <div class='task-name'><label for="${task.id}" class='title'>${task.title}</label></div>
             </div>
             <div class='list-delete'>
@@ -79,6 +85,7 @@
         </div>`;
         li.classList.add('todo_list_item');
         tasksList.append(li);
+        return;
     }
 
     //deleting todo task
@@ -115,9 +122,8 @@
         renderList();
     }
     //function to handling click and calling specific functions
-    function handleClickListener(e) {
-        const target = e.target;
-        console.log(target.className);
+    function handleClickListener(event) {
+        const target = event.target;
         if (target.className === 'fa fa-plus delete-icon onhover') {
             const taskId = target.dataset.id;  //getting the data-id from img tag with dataset.id(data-id)
             deleteTask(taskId);
@@ -129,6 +135,7 @@
             return;
         }
         else if (target.id === 'add') {
+            taskText = taskName.value;
             addToDo();
             return;
         }
@@ -162,7 +169,7 @@
             let allTasks = tasks;
             let completeTasks = tasks.filter(x => x.completed == true);
             tasks = completeTasks;
-            renderList(e);
+            renderList(event);
             completed.style.fontWeight = '700';
             all.style.fontWeight = '100';
             uncomplete.style.fontWeight = '100';
@@ -182,6 +189,14 @@
         }
 
     }
+    function handleKeyPress(event){
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            taskText = event.target.value;
+            addToDo();
+            return;
+        }
+    }
     // to show alert message
     function showAlertNotification(text) {
         alert(text);
@@ -189,6 +204,7 @@
 
     function initializeApp() {
         document.addEventListener('click', handleClickListener);
+        document.addEventListener('keypress',handleKeyPress);
     }
 
     initializeApp();
