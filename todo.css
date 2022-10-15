@@ -5,8 +5,7 @@ body{
 
 h1{
     text-align: center;
-    position: fixed;
-    top: 5%;
+    margin-top: 2%;
     left: 38%;
     color: white;
     font-family: 'Courier New', Courier, monospace;
